@@ -283,7 +283,7 @@ pub unsafe fn restore_context(ctx: &Context) -> ! {
             ld.d $a0, $a0, 8*4
             ret
             ",
-            in("a0") ctx,
+            in("$a0") ctx,
             options(noreturn)
         );
     }
@@ -295,7 +295,7 @@ pub unsafe fn restore_context(ctx: &Context) -> ! {
             ld.d $a0, $a0, 8*4
             ret
             ",
-            in("a0") ctx,
+            in("$a0") ctx,
             options(noreturn)
         );
     }
