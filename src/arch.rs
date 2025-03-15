@@ -52,6 +52,24 @@ mod riscv {
 #[cfg(any(target_arch = "riscv64", target_arch = "riscv32"))]
 pub use riscv::*;
 
+#[cfg(target_arch = "loongarch64")]
+mod loongarch {
+    use gimli::{Register, LoongArch};
+
+    pub struct Arch;
+
+    #[allow(unused)]
+    impl Arch {
+        pub const SP: Register = LoongArch::SP;
+        pub const RA: Register = LoongArch::RA;
+
+        pub const UNWIND_DATA_REG: (Register, Register) = (LoongArch::A0, LoongArch::A1);
+        pub const UNWIND_PRIVATE_DATA_SIZE: usize = 2;
+    }
+}
+#[cfg(target_arch = "loongarch64")]
+pub use loongarch::*;
+
 #[cfg(target_arch = "aarch64")]
 mod aarch64 {
     use gimli::{AArch64, Register};

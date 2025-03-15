@@ -18,6 +18,11 @@ mod riscv32;
 #[cfg(target_arch = "riscv32")]
 pub use riscv32::*;
 
+#[cfg(target_arch = "loongarch64")]
+mod loongarch64;
+#[cfg(target_arch = "loongarch64")]
+pub use loongarch64::*;
+
 #[cfg(target_arch = "aarch64")]
 mod aarch64;
 #[cfg(target_arch = "aarch64")]
