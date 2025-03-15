@@ -106,10 +106,7 @@ macro_rules! code {
         "
     };
     (save_fp) => {
-        // arch option manipulation needed due to LLVM/Rust bug, see rust-lang/rust#80608
         "
-        .option push
-        .option arch, +d
         fst.d $f0,  $sp, (8 * 33 + 8 * 0)
         fst.d $f1,  $sp, (8 * 33 + 8 * 1)
         fst.d $f2,  $sp, (8 * 33 + 8 * 2)
@@ -142,7 +139,6 @@ macro_rules! code {
         fst.d $f29, $sp, (8 * 33 + 8 * 29)
         fst.d $f30, $sp, (8 * 33 + 8 * 30)
         fst.d $f31, $sp, (8 * 33 + 8 * 31)
-        .option pop
         "
     };
     (restore_gp) => {
